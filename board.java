@@ -14,7 +14,7 @@ public class board {
 		
 		for(int x=0;x<horizontal;x++) {
 			for(int y=0;y<vertical;y++) {
-				if((y==2 || y==4 || y==6) && (x==2 || x==4 || x==6)) {
+				if((y==1 || y==4 || y==7) && (x==1 || x==4 || x==7)) {
 					Board[x][y] = "?";
 				}
 				else 
