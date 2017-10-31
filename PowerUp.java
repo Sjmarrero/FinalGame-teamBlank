@@ -29,8 +29,8 @@ public class PowerUp {
 			this.X = x;
 			this.Y = y;
 			break;
-			default:
-				System.out.print("Error: PowerUp - switch");
+		default:
+			System.out.print("Error: PowerUp - switch");
 		}
 	}
 	
