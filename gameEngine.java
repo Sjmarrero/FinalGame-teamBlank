@@ -5,7 +5,10 @@ public class gameEngine {
 	private int playerX, playerY;
 	Random rand = new Random();
 	
-	private characters player = new characters(0,9);
+	private characters player = new characters(0,8);
+	private characters ninja1, ninja2, ninja3, ninja4, ninja4, ninja6;
+	
+	
 	
 	
 	
