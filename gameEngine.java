@@ -5,7 +5,7 @@ public class gameEngine {
 	private int playerX, playerY;
 	Random rand = new Random();
 	
-	public characters player = new characters(0,9);
+	private characters player = new characters(0,9);
 	
 	
 	
