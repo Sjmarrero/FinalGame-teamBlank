@@ -147,8 +147,9 @@ public class GameEngine {
 		
 	}
 	
-	public void shoot(String direction) {
+	public String shoot(String direction) {
 		int value = 0;
+		if(player.getAmmo() == 0)
 		if(direction.equals("w") || direction.equals("s"))
 			value = 1;
 		else
@@ -161,7 +162,8 @@ public class GameEngine {
 			for(int i = x + value; i > 0 && i < 9; i+=value) {
 				if(board.at(i, y).getNinja()) {
 					killNinja(i, y);
-					break;
+					//player.shoot();
+					return "You killed a Ninja!";
 				}
 			}
 			break;
@@ -170,13 +172,15 @@ public class GameEngine {
 			for(int j = y + value; j > 0 && j < 9; j+=value) {
 				if(board.at(x, j).getNinja()) {
 					killNinja(x, j);
-					break;
+					//player.shoot();
+					return "You killed a Ninja!";
 				}
 			}
 			break;
 			default:
 				System.out.println("Error: GameEninge-shoot-switch");
 		}
+		return "No Ninjas were killed!";
 	}
 
 

@@ -3,6 +3,7 @@ package edu.cpp.cs.cs141.final_prog_assignment;
 public class Player extends Square{
 	
 	private int lives = 3;
+	private int bullet = 1;
 	private boolean briefcase = false;
 	
 	public Player() {
@@ -32,5 +33,13 @@ public class Player extends Square{
 	
 	public boolean hasBriefcase() {
 		return briefcase;
+	}
+
+	public int getAmmo() {
+		return bullet;
+	}
+	
+	public void fire() {
+		bullet--;
 	}
 }
