@@ -19,7 +19,10 @@ public class Ninja extends Square{
 	}
 	
 	public String display() {
-		return " N ";
+		if(getRevealed())
+			return " N ";
+		else
+			return " * ";
 	}
 
 }

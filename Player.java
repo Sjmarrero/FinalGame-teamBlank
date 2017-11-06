@@ -33,5 +33,4 @@ public class Player extends Square{
 	public boolean hasBriefcase() {
 		return briefcase;
 	}
-
 }

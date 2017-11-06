@@ -2,13 +2,17 @@ package edu.cpp.cs.cs141.final_prog_assignment;
 
 public class Square{
 	
+	private boolean isEmpty;
 	private boolean isPlayer;
 	private boolean isNinja;
 	private boolean isRoom;
 	private boolean isPowerUp;
-	private boolean covered;
+	private boolean covered = false;
+	private boolean revealed = false;
+	private int x, y;
 	
 	public Square() {
+		isEmpty = true;
 		isPlayer = false;
 		isNinja = false;
 		isRoom = false;
@@ -17,25 +21,33 @@ public class Square{
 	
 	public void setPlayer() {
 		isPlayer = true;
+		isEmpty = false;
 	}
 
 	public void setNinja() {
 		isNinja = true;
+		isEmpty = false;
 	}
 	
 	public void setRoom() {
 		isRoom = true;
+		isEmpty = false;
 	}
 	
 	public void setPowerUp() {
 		isPowerUp = true;
+		isEmpty = false;
+	}
+	
+	public boolean getEmpty() {
+		return isEmpty;
 	}
 	
 	public boolean getPlayer() {
 		return isPlayer;
 	}
 	
-	public boolean getNinaja() {
+	public boolean getNinja() {
 		return isNinja;
 	}
 	
@@ -48,7 +60,10 @@ public class Square{
 	}
 	
 	public String display() {
-		return " ! ";
+		if(revealed)
+			return "   ";
+		else
+			return " * ";
 	}
 
 	public void setCovered(boolean b) {
@@ -57,5 +72,29 @@ public class Square{
 	
 	public boolean getCovered() {
 		return covered;
+	}
+	
+	public void setRevealed(boolean b) {
+		revealed = b;
+	}
+	
+	public boolean getRevealed() {
+		return revealed;
+	}
+	
+	public void setX(int i) {
+		x = i;
+	}
+	
+	public int getX() {
+		return x;
+	}
+	
+	public void setY(int j) {
+		y = j;
+	}
+	
+	public int getY() {
+		return y;
 	}
 }

@@ -3,12 +3,14 @@ package edu.cpp.cs.cs141.final_prog_assignment;
 import java.util.Scanner;
 
 public class UserInterface {
+	private enum status{WON, LOST, CONTINUE};
 	private GameEngine game;
 	private Scanner scan = null;
+	private status gameStatus = status.CONTINUE;
 	
 	public UserInterface(GameEngine game) {
 		this.game = game;
-		scan = new Scanner(System.in);		
+		scan = new Scanner(System.in);	
 	}
 	
 	public void openMenu() {
@@ -56,13 +58,39 @@ public class UserInterface {
 	
 	public void playGame(){
 		String direction;
-		game.displayBoard();
-		System.out.print("Choose direction to look: ");
-		direction = scan.next();
-		//System.out.println(g.look(direction));
+		while(gameStatus == status.CONTINUE) {
+			displayBoard();
+			System.out.print("Choose direction to look: ");
+			direction = scan.next();
+			System.out.println(game.look(direction));
+			displayBoard();
+			System.out.print("Move(wasd) or shoot(f): ");
+			direction = scan.next();
+			direction.toLowerCase();
+			if(direction.equals("f")) {
+				System.out.print("Choose direction to fire: ");
+				direction = scan.next();
+				game.shoot(direction);
+			}
+			else
+				game.move(direction);
+			//need to reset revealed squares
+		}
 		
 	}
-	
+
+	private void displayBoard() {
+		int length = 9;
+		for(int x = 0;x < length; x++) {
+			System.out.println("");
+			for(int y = 0;y < length;y++) {
+				System.out.print(game.displayBoard(x, y));
+			}
+		}
+
+		System.out.println("\n");
+	}
+
 	public void mainMenu() {
 		System.out.println(	"1) How to Play\n" + 
 							"2) Start New Game\n" + 

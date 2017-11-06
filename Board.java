@@ -25,22 +25,14 @@ public class Board {
 					else
 						board[x][y] = new Room(x, y);
 				}
+				else
+					board[x][y] = new Square();
 			}
 		}
 	}
 
-	public void displayBoard() {
-		for(int x=0;x<vertical;x++) {
-			System.out.println("");
-			for(int y=0;y<horizontal;y++) {
-				if(board[x][y] == null)
-					System.out.print(" * ");
-				else
-					System.out.print(board[x][y].display());
-			}
-		}
-
-		System.out.println("\n");		
+	public String displayBoard(int x, int y) {
+			return board[x][y].display();	
 	}	
 	
 	public Square at(int x, int y) {
@@ -49,6 +41,8 @@ public class Board {
 
 	public void set(Player player, int x, int y) {
 		board[x][y] = player;
+		player.setX(x);
+		player.setY(y);
 		
 	}
 
@@ -59,6 +53,36 @@ public class Board {
 	public void set(PowerUp radar, int x, int y) {
 		board[x][y] = radar;
 		
+	}
+
+	public boolean checkX(int i, int x, int y) {
+		boolean clear = true;
+		try {
+			board[x+i][y].setRevealed(true);
+			if(board[x+i][y].getNinja()) {
+				clear = false;
+			}
+		}catch(ArrayIndexOutOfBoundsException e) {
+			//do nothing
+		}catch(NullPointerException e) {
+			//do nothing
+		}
+		return clear;
+	}
+
+	public boolean checkY(int i, int x, int y) {
+		boolean clear = true;
+		try {
+			board[x][y+i].setRevealed(true);
+			if(board[x][y+i].getNinja()) {
+				clear = false;
+			}
+		}catch(ArrayIndexOutOfBoundsException e) {
+			//do nothing
+		}catch(NullPointerException e) {
+			//do nothing
+		}
+		return clear;
 	}
 	
 }
