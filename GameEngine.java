@@ -26,8 +26,11 @@ public class GameEngine {
 		int count = 6;
 		int i = 0;
 		while(count > 0){
-			int x = random.nextInt(5) + 4; //staying 3 units away from player initial position
-			int y = random.nextInt(5) + 4; //staying 3 units away from player initial position
+			int x = random.nextInt(9);
+			if(x > 4)
+				y = random.nextInt(5) + 4;
+			else
+				y = random.nextInt(9);
 			if(!board.at(x, y).getNinja() && board.at(x, y).getEmpty() && !board.at(x, y).getRoom()) {//if ninja does not already exist in room
 				ninjas[i] = new Ninja(x,y);
 				board.setNinja(ninjas[i],x,y);
