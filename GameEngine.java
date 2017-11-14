@@ -319,6 +319,36 @@ public class GameEngine {
 			int b = ninjas[i].getY();
 			
 			moveNinja(ninjas[i], direction , a, b);
+			
+			/*
+			for(int i = 0; i <= 5; i++)
+				int direction;
+				int a = ninjas[i].getX();
+				int b = ninjas[i].getY();
+				do{
+				direction = random.nextInt(4);
+				int x, y;
+				switch(direction){
+				case 0:
+					x = a-1;
+					y = b;
+					break;
+				case 1:
+					x= a+1;
+					y = b;
+					break;
+				case 2:
+					x = a;
+					y = b-1;
+					break;
+				case 3:
+					x = a;
+					y = b+1;
+					break;
+				}while(((x >= 0 && x <= 8) && (y >= 0 && y <= 8))
+				&& !board(x,y).getNinja()
+				&& !board(x,y).getRoom());
+			*/
 		}
 	}
 	
